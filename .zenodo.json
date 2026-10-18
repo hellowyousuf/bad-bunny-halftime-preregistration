@@ -1,0 +1,26 @@
+{
+  "title": "Bad Bunny's all-Spanish Super Bowl Halftime Performance: Partisan Meaning Making around a High-salience Sport Event — Pre-registration",
+  "upload_type": "publication",
+  "publication_type": "other",
+  "description": "Pre-registration for the study \"Bad Bunny's all-Spanish Super Bowl Halftime Performance: Partisan Meaning Making around a High-salience Sport Event\". The study will compare how Fox News, CNN and MSNBC framed Bad Bunny's 2026 Super Bowl halftime performance across three phases (announcement, build-up, performance with aftermath), using the networks' closed captions in the Internet Archive TV News Archive, coded by a language model under a stability protocol with a human spot check. Deposited before any caption text was retrieved. Contents: registration.md (research questions, frame, decision rules, reliability, pre-registration counts and interval-width simulation), the approved analysis plan (revision 1), codebook, coder prompts, deviations ledger, and the count and simulation scripts with their outputs. No caption text is included.",
+  "creators": [
+    {
+      "name": "Yousuf, Mohammad",
+      "affiliation": "Department of Communication & Journalism, University of New Mexico",
+      "orcid": "0000-0003-3784-3346"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "pre-registration",
+    "framing",
+    "cable news",
+    "Super Bowl halftime show",
+    "Bad Bunny",
+    "partisan media",
+    "cultural citizenship",
+    "Spanish language"
+  ],
+  "version": "1.0.0",
+  "language": "eng"
+}

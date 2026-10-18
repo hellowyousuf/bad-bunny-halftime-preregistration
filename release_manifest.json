@@ -1,0 +1,82 @@
+[
+ {
+  "path": ".zenodo.json",
+  "sha256": "c9895ef8bb8aa30b5e19533a8a38aea659e40cc0ea47586dedf29941f7ceabf1",
+  "bytes": 1547
+ },
+ {
+  "path": "CITATION.cff",
+  "sha256": "20aeb3a429a8d987d804e927a0ff4c759c3f4b1ef8d2083a8c7a86a1d811396d",
+  "bytes": 513
+ },
+ {
+  "path": "LICENSE",
+  "sha256": "66e5867c157c47bb8406973cba524adb5b5cc85ebe8be9f4921fe1b0c84a7cae",
+  "bytes": 1072
+ },
+ {
+  "path": "LICENSE-DATA",
+  "sha256": "dffcda4445819bbc874a15ca37d8795606c06d458a56989c1eb703ebcb889eaf",
+  "bytes": 315
+ },
+ {
+  "path": "README.md",
+  "sha256": "a67ab6b5c6910e0d8d75eac71c7e68b2a22727cdc76c3c4e9c765bcac231b218",
+  "bytes": 1495
+ },
+ {
+  "path": "code/a34_hit_counts.py",
+  "sha256": "d10974ff424c7eefceb19275b9bdc133f85ad65d37d391d04728647578dbd6cd",
+  "bytes": 6008
+ },
+ {
+  "path": "code/a34_width_sim.py",
+  "sha256": "ed8c8eb49431822b2786d69c2a32e04527a0ae866e7720a36d4c46eb89a7fe2e",
+  "bytes": 5941
+ },
+ {
+  "path": "data/a34_hit_counts.csv",
+  "sha256": "4b45cb35bf33402d8e02b9e6acfb11d98c2fc2a19392ba8d4c2d99f367644a49",
+  "bytes": 283
+ },
+ {
+  "path": "data/a34_width_sim.json",
+  "sha256": "b501373c7f360ecf00c0cafcf7179e42475cc4b4a5ea886ab8567c45b4a38023",
+  "bytes": 5935
+ },
+ {
+  "path": "plan/analysis_plan.json",
+  "sha256": "803f0c5e5a9dc6e5fc4b84e8e4ba1ddc1771d33fa5e5735e94ec1b22ed8f5f70",
+  "bytes": 18317
+ },
+ {
+  "path": "plan/codebook.json",
+  "sha256": "0cce1a64f674b3ece271cec718aadbcfbf070bd9c3a19051e96db01d9e6fc5f2",
+  "bytes": 6991
+ },
+ {
+  "path": "plan/deviations.json",
+  "sha256": "d7784ef74a69a12ba6b6e1e681830e85973ad473dd303347c0e336e02156d8d4",
+  "bytes": 647
+ },
+ {
+  "path": "plan/prompts/coder_prompt.md",
+  "sha256": "468c7720f6e3ddbaa961bb76d232d2219cfab5e99d788f7b52f87a04d527d72e",
+  "bytes": 2776
+ },
+ {
+  "path": "plan/prompts/coder_prompt_reworded.md",
+  "sha256": "6388dbfaf74eb8b60a9efa9902571590a936f6d671894e900c782b3e4a5ef1f4",
+  "bytes": 2348
+ },
+ {
+  "path": "plan/prompts/relevance_prompt.md",
+  "sha256": "2b1c44c23a165cf1cdc62a719a340c22efb7eb10c9579766a8df3ee24d1cce0b",
+  "bytes": 583
+ },
+ {
+  "path": "registration.md",
+  "sha256": "eb03909ec7606b3dbcb2e677af3c951d76d45ad0e506aa3033d8392de26a9b61",
+  "bytes": 5977
+ }
+]

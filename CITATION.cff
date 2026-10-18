@@ -1,0 +1,14 @@
+cff-version: 1.2.0
+message: "If you use this pre-registration, please cite it."
+title: "Bad Bunny's all-Spanish Super Bowl Halftime Performance: Partisan Meaning Making around a High-salience Sport Event — Pre-registration"
+type: dataset
+authors:
+  - family-names: Yousuf
+    given-names: Mohammad
+    affiliation: "Department of Communication & Journalism, University of New Mexico"
+    orcid: "https://orcid.org/0000-0003-3784-3346"
+license:
+  - CC-BY-4.0
+  - MIT
+version: "1.0.0"
+date-released: "2026-10-17"
