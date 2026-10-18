@@ -1,0 +1,229 @@
+{
+ "seed": 20261017,
+ "B": 500,
+ "shuffles": 100,
+ "airings": {
+  "CNN|announcement": 62,
+  "CNN|build-up": 120,
+  "CNN|performance with aftermath": 86,
+  "CNN|broadcast window": 43,
+  "Fox News|announcement": 18,
+  "Fox News|build-up": 50,
+  "Fox News|performance with aftermath": 40,
+  "Fox News|broadcast window": 25,
+  "MSNBC|announcement": 39,
+  "MSNBC|build-up": 49,
+  "MSNBC|performance with aftermath": 41,
+  "MSNBC|broadcast window": 18
+ },
+ "scenarios": [
+  {
+   "id": "S1",
+   "seg_per_airing": 1.5,
+   "relevant": 0.6,
+   "differences": "none",
+   "phases": {
+    "announcement": {
+     "relevant_segments_expected": 128,
+     "corrected_jsd_halfwidth": 0.1067,
+     "change_from_announcement_halfwidth": null,
+     "change_wider_than_band_.05": null,
+     "belonging_share_halfwidth": {
+      "CNN": 0.09,
+      "Fox News": 0.214,
+      "MSNBC": 0.106
+     }
+    },
+    "build-up": {
+     "relevant_segments_expected": 216,
+     "corrected_jsd_halfwidth": 0.0449,
+     "change_from_announcement_halfwidth": 0.1217,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.064,
+      "Fox News": 0.101,
+      "MSNBC": 0.121
+     }
+    },
+    "performance with aftermath": {
+     "relevant_segments_expected": 183,
+     "corrected_jsd_halfwidth": 0.0689,
+     "change_from_announcement_halfwidth": 0.1257,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.082,
+      "Fox News": 0.098,
+      "MSNBC": 0.155
+     }
+    },
+    "broadcast window": {
+     "relevant_segments_expected": 96,
+     "corrected_jsd_halfwidth": 0.1205,
+     "change_from_announcement_halfwidth": 0.1705,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.116,
+      "Fox News": 0.154,
+      "MSNBC": 0.173
+     }
+    }
+   }
+  },
+  {
+   "id": "S2",
+   "seg_per_airing": 3.0,
+   "relevant": 0.7,
+   "differences": "none",
+   "phases": {
+    "announcement": {
+     "relevant_segments_expected": 253,
+     "corrected_jsd_halfwidth": 0.058,
+     "change_from_announcement_halfwidth": null,
+     "change_wider_than_band_.05": null,
+     "belonging_share_halfwidth": {
+      "CNN": 0.074,
+      "Fox News": 0.117,
+      "MSNBC": 0.076
+     }
+    },
+    "build-up": {
+     "relevant_segments_expected": 482,
+     "corrected_jsd_halfwidth": 0.0238,
+     "change_from_announcement_halfwidth": 0.0619,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.047,
+      "Fox News": 0.065,
+      "MSNBC": 0.063
+     }
+    },
+    "performance with aftermath": {
+     "relevant_segments_expected": 331,
+     "corrected_jsd_halfwidth": 0.0339,
+     "change_from_announcement_halfwidth": 0.0652,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.07,
+      "Fox News": 0.098,
+      "MSNBC": 0.082
+     }
+    },
+    "broadcast window": {
+     "relevant_segments_expected": 195,
+     "corrected_jsd_halfwidth": 0.0659,
+     "change_from_announcement_halfwidth": 0.0828,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.083,
+      "Fox News": 0.104,
+      "MSNBC": 0.09
+     }
+    }
+   }
+  },
+  {
+   "id": "S3",
+   "seg_per_airing": 3.0,
+   "relevant": 0.7,
+   "differences": "moderate",
+   "phases": {
+    "announcement": {
+     "relevant_segments_expected": 243,
+     "corrected_jsd_halfwidth": 0.0559,
+     "change_from_announcement_halfwidth": null,
+     "change_wider_than_band_.05": null,
+     "belonging_share_halfwidth": {
+      "CNN": 0.067,
+      "Fox News": 0.146,
+      "MSNBC": 0.075
+     }
+    },
+    "build-up": {
+     "relevant_segments_expected": 482,
+     "corrected_jsd_halfwidth": 0.0358,
+     "change_from_announcement_halfwidth": 0.069,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.048,
+      "Fox News": 0.088,
+      "MSNBC": 0.079
+     }
+    },
+    "performance with aftermath": {
+     "relevant_segments_expected": 358,
+     "corrected_jsd_halfwidth": 0.0338,
+     "change_from_announcement_halfwidth": 0.0649,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.065,
+      "Fox News": 0.082,
+      "MSNBC": 0.076
+     }
+    },
+    "broadcast window": {
+     "relevant_segments_expected": 183,
+     "corrected_jsd_halfwidth": 0.07,
+     "change_from_announcement_halfwidth": 0.0936,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.064,
+      "Fox News": 0.135,
+      "MSNBC": 0.134
+     }
+    }
+   }
+  },
+  {
+   "id": "S4",
+   "seg_per_airing": 6.0,
+   "relevant": 0.8,
+   "differences": "moderate",
+   "phases": {
+    "announcement": {
+     "relevant_segments_expected": 598,
+     "corrected_jsd_halfwidth": 0.0499,
+     "change_from_announcement_halfwidth": null,
+     "change_wider_than_band_.05": null,
+     "belonging_share_halfwidth": {
+      "CNN": 0.043,
+      "Fox News": 0.071,
+      "MSNBC": 0.06
+     }
+    },
+    "build-up": {
+     "relevant_segments_expected": 1071,
+     "corrected_jsd_halfwidth": 0.0163,
+     "change_from_announcement_halfwidth": 0.0532,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.034,
+      "Fox News": 0.051,
+      "MSNBC": 0.055
+     }
+    },
+    "performance with aftermath": {
+     "relevant_segments_expected": 871,
+     "corrected_jsd_halfwidth": 0.0245,
+     "change_from_announcement_halfwidth": 0.0568,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.031,
+      "Fox News": 0.067,
+      "MSNBC": 0.05
+     }
+    },
+    "broadcast window": {
+     "relevant_segments_expected": 435,
+     "corrected_jsd_halfwidth": 0.0324,
+     "change_from_announcement_halfwidth": 0.0589,
+     "change_wider_than_band_.05": true,
+     "belonging_share_halfwidth": {
+      "CNN": 0.056,
+      "Fox News": 0.08,
+      "MSNBC": 0.125
+     }
+    }
+   }
+  }
+ ]
+}
