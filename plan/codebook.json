@@ -1,0 +1,164 @@
+{
+ "schema": "rihlah-codebook/2.0",
+ "plan_revision": 1,
+ "generated": "2026-10-15T23:00:00+00:00",
+ "note": "Instructions for the language-model coder (P0). Examples are illustrative paraphrases written for the codebook, not corpus text.",
+ "codes": [
+  {
+   "id": "C0",
+   "variable": "V0",
+   "label": "relevance",
+   "definition": "Is the segment about the Super Bowl halftime show, the headliner's selection or the rival show? Asked first, in a separate call.",
+   "levels": {
+    "yes": "about the halftime show, the selection, reactions to it, or the rival show",
+    "no": "anything else, including the performer's music, tours or awards, other people named Benito, game coverage, advertising and schedules"
+   },
+   "examples": [],
+   "decision_rules": [
+    "Only V0 = yes segments are coded for V1–V3."
+   ]
+  },
+  {
+   "id": "C1",
+   "variable": "V1",
+   "label": "primary frame",
+   "definition": "The one frame the segment stresses most: what it selects and makes salient about the halftime show.",
+   "levels": {
+    "national identity": "what the nation is, its symbols and who represents it (anthem, flag, 'American' culture)",
+    "immigration": "migration, borders, deportation, legal status, ICE",
+    "cultural representation": "Latino or Puerto Rican culture, language, music and visibility on a national stage",
+    "political controversy": "the selection as an act of officials and institutions disputed in politics (statements by officials, boycotts, the rival show)",
+    "generic partisan conflict": "the event as a fight between political sides (left vs right, Democrats vs Republicans, media bias) tied to which side is right about the show",
+    "no frame": "a relevant segment that stresses none of the five frames"
+   },
+   "examples": [
+    "Illustrative: 'The NFL picked a singer who won't even perform in English' → national identity, unless immigration is named",
+    "Illustrative: 'Democrats love him, Republicans hate him, it's the culture war again' → generic partisan conflict"
+   ],
+   "decision_rules": [
+    "Code the frame that takes most of the segment's text; if two tie, prefer the frame tied to the event (national identity, immigration, cultural representation) over political controversy, and political controversy over generic partisan conflict."
+   ]
+  },
+  {
+   "id": "C2",
+   "variable": "V2",
+   "label": "belonging line",
+   "definition": "Whether the segment draws a line around the nation that places the performer or his audience inside it (include) or outside it (exclude).",
+   "levels": {
+    "include": "the performer, Puerto Ricans, Latinos or Spanish speakers are treated as legitimately American",
+    "exclude": "they are treated as not, or not fully, American, or as not fit to represent the country",
+    "none": "no line is drawn"
+   },
+   "examples": [
+    "Illustrative: 'He is as American as anyone; Puerto Rico is the United States' → include",
+    "Illustrative: 'Get someone who represents America' → exclude"
+   ],
+   "decision_rules": [
+    "Code the line the segment's speakers draw, not the coder's view.",
+    "A line reported and rejected by the anchor is coded by what the anchor asserts.",
+    "Mixed lines: code the line that takes most of the segment.",
+    "A line counts only when it is drawn around the nation: who is or is not American. Talk that places a politician, a party or its voters on one side of a dispute is not a belonging line, even when it uses the words of membership (e.g. 'real Americans vote for us' about voters is partisan; 'he is not American' about the performer is exclude)."
+   ]
+  },
+  {
+   "id": "C3",
+   "variable": "V3",
+   "label": "evaluation of Spanish",
+   "definition": "For segments that name the Spanish language or singing in Spanish: how the use of Spanish is judged.",
+   "levels": {
+    "claim to belonging": "Spanish is treated as part of America or as a legitimate claim to be included",
+    "breach of belonging": "Spanish is treated as foreign, divisive or improper for a national stage",
+    "neither": "Spanish is named without an evaluation",
+    "not named": "the segment does not name the language"
+   },
+   "examples": [
+    "Illustrative: 'Half the country speaks Spanish at home' → claim to belonging",
+    "Illustrative: 'Nobody will understand a word of it' → breach of belonging"
+   ],
+   "decision_rules": [
+    "Code only explicit mentions of the language; music or accent alone is not named."
+   ]
+  },
+  {
+   "id": "C4",
+   "variable": "V4, V5",
+   "label": "derived segment types",
+   "definition": "Rule-coded from C1 and C2 for on-topic segments (V1 ≠ none): a belonging frame (V4) has V2 = include or exclude; a generic partisan conflict frame (V5) has V1 = political controversy or generic partisan conflict and V2 = none.",
+   "examples": [],
+   "decision_rules": [
+    "Computed by script after P0; never coded by the model."
+   ]
+  },
+  {
+   "id": "C5",
+   "variable": "V6, V7",
+   "label": "network and phase",
+   "definition": "Rule-coded from Archive metadata: network by channel (MSNBC and MS NOW one outlet, A9); phase by airing date against the A5 boundaries (Eastern Time).",
+   "examples": [],
+   "decision_rules": [
+    "An airing that crosses midnight takes the date of its start."
+   ]
+  },
+  {
+   "id": "C6",
+   "variable": "V8",
+   "label": "analytic category",
+   "definition": "Rule-coded for relevant segments: belonging-include (V2 include); belonging-exclude (V2 exclude); otherwise the V1 frame (national identity, immigration, cultural representation, political controversy, generic partisan conflict, no frame).",
+   "examples": [],
+   "decision_rules": [
+    "Computed by script after P0; never coded by the model."
+   ]
+  }
+ ],
+ "dictionaries": {
+  "note": "Word lists for the rule-based checks (A25) and the topic-model fit rule (A24); fixed before collection; matched case-insensitively on whole words and phrases; the filter keywords and generic words ('American', 'language') are excluded; agreement with the model code reported as Krippendorff's alpha.",
+  "conflict": [
+   "democrat",
+   "democrats",
+   "republican",
+   "republicans",
+   "gop",
+   "liberal",
+   "liberals",
+   "conservative",
+   "conservatives",
+   "left",
+   "right-wing",
+   "left-wing",
+   "woke",
+   "maga",
+   "partisan",
+   "both sides",
+   "culture war"
+  ],
+  "belonging": [
+   "belong",
+   "belongs",
+   "citizen",
+   "citizens",
+   "foreign",
+   "foreigner",
+   "go back",
+   "leave the country",
+   "not american",
+   "our country",
+   "real american",
+   "real americans",
+   "stay in your country",
+   "this country",
+   "un-american"
+  ],
+  "spanish": [
+   "spanish",
+   "español",
+   "espanol",
+   "in spanish",
+   "in english",
+   "english only",
+   "translate",
+   "translation",
+   "subtitles"
+  ]
+ },
+ "human_checkers": "Two of the authors code V0–V3 for the spot-check sample from this codebook alone, after a practice round on segments outside the sample; they never see the model's codes (A35)."
+}

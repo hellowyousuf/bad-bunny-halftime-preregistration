@@ -1,0 +1,20 @@
+{
+ "schema": "rihlah-deviations/2.0",
+ "items": [
+  {
+   "id": "X1",
+   "ts": "2026-10-18T03:20:16+00:00",
+   "plan_revision": 1,
+   "procedure": "registration",
+   "what": "The plan is registered as a dated, versioned deposit on Zenodo (with a DOI) instead of the Open Science Framework; content of the registration unchanged.",
+   "why": "The author already uses Zenodo and GitHub; Zenodo gives a fixed date, frozen files, a DOI and an optional embargo, which is what the registration needs.",
+   "author_words": "use Zenodo",
+   "effect_on": [],
+   "reported_in": [
+    "methods-b08",
+    "appendices-b05"
+   ],
+   "decided_by": "user"
+  }
+ ]
+}

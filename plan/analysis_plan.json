@@ -1,0 +1,362 @@
+{
+ "schema": "rihlah-analysis-plan/2.0",
+ "plan_revision": 1,
+ "generated": "2026-10-15T23:40:00+00:00",
+ "approved": {
+  "ts": "2026-10-17T20:16:14.482Z",
+  "by": "Mohammad Yousuf",
+  "plan_revision": 1
+ },
+ "data_source": {
+  "what": "Closed captions of Fox News, CNN and MSNBC programs whose captions match the keyword filter (A6), with network, program and airing date",
+  "where": "Internet Archive TV News Archive (https://archive.org/details/tv); licensed transcripts of the same programs as a recall and coverage check (A2)",
+  "access": "public",
+  "licence_or_terms": "TV News Archive terms of use for caption search and local analysis (A1, legal, open: the author confirms); licensed-transcript text-and-data-mining terms (A2, legal, open); quotations short and attributed (A3, open)",
+  "period": "September 28, 2025, to February 28, 2026; phases announcement (Sep 28–Oct 25, 2025), build-up (Oct 26, 2025–Feb 7, 2026), performance with aftermath (Feb 8–28, 2026) (A5)",
+  "expected_size": "Not stated (unknown before collection; reported by network and phase)",
+  "human_subjects": false,
+  "fallback": "If bulk retrieval of caption text is not within the Archive's terms (A1), licensed transcripts of the same programs become the corpus (A2, A31)."
+ },
+ "sampling": {
+  "frame": "All airings of Fox News, CNN and MSNBC (under either name, A9) held by the TV News Archive in the period, daytime and prime time",
+  "unit_of_analysis": "network × phase",
+  "unit_of_observation": "caption segment: the text 30 s either side of a keyword hit, overlapping windows merged, at most 3 minutes (A7)",
+  "procedure": "census of keyword matches",
+  "sample_size": "Census of every matching segment; no sampling, so no size rationale beyond the frame",
+  "inclusion": [
+   "captions contain \"Bad Bunny\" OR \"Benito\" OR \"halftime show\" OR \"half-time show\" OR \"halftime performance\" OR \"All-American Halftime\" (A6)",
+   "aired in the period on Fox News, CNN or MSNBC/MS NOW"
+  ],
+  "exclusion": [
+   "advertising segments (A8)",
+   "reruns: a program repeating an earlier airing on the same network within 48 hours at ≥ .90 similarity is counted once (A8)",
+   "other outlets, Spanish-language outlets, web and social media (brief scope)"
+  ]
+ },
+ "variables": [
+  {
+   "id": "V0",
+   "name": "relevance",
+   "role": "descriptive",
+   "operationalization": "whether the segment is about the Super Bowl halftime show, the headliner's selection or the rival show (not the performer's music, tours or awards); asked in a separate first call; only relevant segments are coded for V1–V3",
+   "levels_or_scale": "yes; no",
+   "coded_by": "model",
+   "codebook_ref": "C0"
+  },
+  {
+   "id": "V1",
+   "name": "primary frame",
+   "role": "outcome",
+   "operationalization": "the one frame a relevant segment stresses most",
+   "levels_or_scale": "national identity; immigration; cultural representation; political controversy; generic partisan conflict; no frame",
+   "coded_by": "model",
+   "codebook_ref": "C1"
+  },
+  {
+   "id": "V2",
+   "name": "belonging line",
+   "role": "outcome",
+   "operationalization": "whether the segment places the performer or his audience inside or outside the nation",
+   "levels_or_scale": "include; exclude; none",
+   "coded_by": "model",
+   "codebook_ref": "C2"
+  },
+  {
+   "id": "V3",
+   "name": "evaluation of Spanish",
+   "role": "outcome",
+   "operationalization": "how a segment that names the Spanish language judges its use",
+   "levels_or_scale": "claim to belonging; breach of belonging; neither; not named",
+   "coded_by": "model",
+   "codebook_ref": "C3"
+  },
+  {
+   "id": "V4",
+   "name": "belonging frame",
+   "role": "outcome",
+   "operationalization": "on-topic segment with V2 = include or exclude",
+   "levels_or_scale": "yes; no",
+   "coded_by": "rule",
+   "codebook_ref": "C4"
+  },
+  {
+   "id": "V5",
+   "name": "generic partisan conflict frame",
+   "role": "outcome",
+   "operationalization": "relevant segment with V1 = political controversy or generic partisan conflict and V2 = none",
+   "levels_or_scale": "yes; no",
+   "coded_by": "rule",
+   "codebook_ref": "C4"
+  },
+  {
+   "id": "V6",
+   "name": "network",
+   "role": "predictor",
+   "operationalization": "airing channel; MSNBC and MS NOW are one outlet (A9)",
+   "levels_or_scale": "Fox News; CNN; MSNBC",
+   "coded_by": "rule",
+   "codebook_ref": "C5"
+  },
+  {
+   "id": "V7",
+   "name": "phase",
+   "role": "predictor",
+   "operationalization": "airing date against the A5 boundaries",
+   "levels_or_scale": "announcement; build-up; performance with aftermath",
+   "coded_by": "rule",
+   "codebook_ref": "C5"
+  },
+  {
+   "id": "V8",
+   "name": "analytic category",
+   "role": "outcome",
+   "operationalization": "for relevant segments: belonging-include (V2 include); belonging-exclude (V2 exclude); for V2 none, the V1 frame: national identity, immigration, cultural representation, political controversy, generic partisan conflict, or no frame",
+   "levels_or_scale": "belonging-include; belonging-exclude; national identity; immigration; cultural representation; political controversy; generic partisan conflict; no frame",
+   "coded_by": "rule",
+   "codebook_ref": "C6"
+  }
+ ],
+ "procedures": [
+  {
+   "id": "P0",
+   "answers": [],
+   "steps": [
+    "Ask relevance (V0) in a separate first call with the relevance prompt; code V1–V3 only for relevant segments (A27).",
+    "Code V1–V3 with claude-opus-5-5 in three fresh contexts at the model's default temperature (coder prompt) and once with the reworded prompt (A10, A21, R-A25); each call sees one segment only.",
+    "Compute Krippendorff's alpha per variable (V0–V3) for all four passes (the floor) and for the three fresh passes; report how often the reworded pass decides a final code.",
+    "Assign the final code by majority across the four passes; ties go to the first fresh-context pass (A18).",
+    "Human spot check (A35): two of the authors, trained on the codebook with practice segments outside the sample, each code V0–V3 for a random sample of 180 segments (20 per network × phase, fixed seed), seeing the segment text only; report checker–checker alpha, then model–checker alpha per variable.",
+    "Word-list checks (A25): conflict list against the conflict codes, membership list against the belonging line, language list against V3 'named'; lists exclude the filter keywords and generic words ('American', 'language'); agreement reported as Krippendorff's alpha between list flag and model code.",
+    "Report filter precision as the share of segments with V0 = no, by network (A27).",
+    "Log every call with its date and the model identifier."
+   ],
+   "tool": "LLM",
+   "script": "data/analysis/p0_stability.py",
+   "outputs": [
+    "T6"
+   ],
+   "decision_rule": "A variable is analysed as planned only if (a) four-pass alpha ≥ .80 (stability) and (b) model–checker alpha ≥ .80 for each checker (validity); otherwise reliability.if_below applies."
+  },
+  {
+   "id": "P1",
+   "answers": [
+    "RQ1"
+   ],
+   "steps": [
+    "Count programs, airings, segments, relevant segments and airings without captions by network and phase (T1). The denominator for every analysis is relevant segments (V0 = yes), including segments with no frame.",
+    "For each network and phase, compute the belonging share (V4), the generic partisan conflict share (V5) and their difference, with 95% cluster-bootstrap intervals over airings (2,000 draws, fixed seed)."
+   ],
+   "tool": "python",
+   "script": "data/analysis/p1_shares.py",
+   "outputs": [
+    "T1",
+    "T2"
+   ],
+   "decision_rule": "A larger gap between networks in the belonging share than in the conflict share favors T2; the reverse favors T3; reported with intervals (A33)."
+  },
+  {
+   "id": "P2",
+   "answers": [
+    "RQ2"
+   ],
+   "steps": [
+    "Keep relevant segments (V0 = yes).",
+    "For each phase and for the broadcast window (February 8–10, 2026; A29), compute the Jensen–Shannon divergence (base 2) between each pair of networks' V8 distributions (eight categories); take the mean of the three pairwise values (A16).",
+    "Permutation baseline (A26): within each phase, shuffle network labels across airings (2,000 shuffles, fixed seed); subtract the mean shuffled value of each category term from that term.",
+    "Compute 95% intervals from 2,000 cluster-bootstrap draws over program airings, fixed seed (A12), for each phase, the window and the changes from the announcement phase.",
+    "Compute the same corrected divergence on V3 (claim, breach, neither) for RQ4."
+   ],
+   "tool": "python",
+   "script": "data/analysis/p2_divergence.py",
+   "outputs": [
+    "T3",
+    "F1"
+   ],
+   "decision_rule": "See P3: the decision rules use the P2 changes and the P3 decomposition together."
+  },
+  {
+   "id": "P3",
+   "answers": [
+    "RQ3"
+   ],
+   "steps": [
+    "Write each pairwise divergence as a sum of one non-negative term per V8 category: ½[p log2(2p/(p+q)) + q log2(2q/(p+q))]; subtract each term's shuffled mean; average across the three pairs.",
+    "Change decomposition: split the change from the announcement phase into signed contributions of the belonging categories, the conflict categories (political controversy, generic partisan conflict) and the rest; contributions sum to the corrected change.",
+    "Level decomposition: in each phase, report the share of the distance made up by the generic partisan conflict term and by the belonging terms.",
+    "Bootstrap all quantities as in P2."
+   ],
+   "tool": "python",
+   "script": "data/analysis/p3_decomposition.py",
+   "outputs": [
+    "T4"
+   ],
+   "decision_rule": "Band ±.05 fixed a priori (A14). T1: the change from the announcement phase to the broadcast window has its whole interval below zero and a point estimate below −.05 (A29). Widening: the change to the performance phase has its whole interval above zero and a point estimate above .05; it favors T2 if the belonging terms carry a larger share than the conflict terms, T3 if the conflict terms carry the larger share, and none if the remaining terms carry most of it. T3 also: both changes (build-up and performance minus announcement) inside the band and the conflict terms more than half of the distance in each phase. Otherwise none. Sensitivity (A30): bands ±.025 and ±.10; political controversy kept apart from generic partisan conflict."
+  },
+  {
+   "id": "P4",
+   "answers": [
+    "RQ4"
+   ],
+   "steps": [
+    "Tabulate V3 by network and phase for segments the coder judges to name the language, with 95% cluster-bootstrap intervals (2,000 draws, fixed seed).",
+    "Draw at random, with a fixed seed, up to five segments per network and phase from those coded claim or breach (A23), read each in its keyword context, and describe how each network argued its judgment; quote short excerpts attributed to network, program and date (A3). The excerpts illustrate; they do not estimate frequencies."
+   ],
+   "tool": "python",
+   "script": "data/analysis/p4_spanish.py",
+   "outputs": [
+    "T5"
+   ],
+   "decision_rule": "Descriptive and interpretive: RQ4 is answered by the shares of claim and breach evaluations per network and phase with intervals, read with the sampled excerpts; no test."
+  },
+  {
+   "id": "P5",
+   "answers": [],
+   "steps": [
+    "Fit a structural topic model to the segments with network × phase as prevalence covariates.",
+    "Choose the number of topics from 10 to 30 by held-out likelihood and semantic coherence (A15).",
+    "Compare the topics that load on each network and phase with the P1–P3 frame pattern."
+   ],
+   "tool": "R",
+   "script": "data/analysis/p5_stm.R",
+   "outputs": [
+    "F2"
+   ],
+   "decision_rule": "Cross-check only (A15). Agreement for a network: at least three of the ten most probable words of its most specific topic fall in the word list of the category in which its share departs most; not applied to categories without a list (A24)."
+  }
+ ],
+ "reliability": {
+  "sample": "all segments (stability); a random sample of 180 segments, 20 per network × phase (human spot check, A35)",
+  "coders": "one language-model coder (claude-opus-5-5): relevance call, three fresh-context passes at default temperature and one reworded-prompt pass; two of the authors as human checkers code a spot-check sample blind to the model's codes (A35, author ruling 2026-10-15); word-list checks (A22, A25)",
+  "statistic": "Krippendorff's alpha",
+  "floor": 0.8,
+  "if_below": "If stability or model–checker alpha for a variable is below .80, its codebook entry is revised once and the variable recoded under the same protocol (and the spot-check sample re-compared); if it is still below, the variable is reported as unreliable, the procedures that use it are reported as descriptive only, and the change is logged in deviations.json before any analysis that uses it (A17)."
+ },
+ "tables": [
+  {
+   "label": "T1",
+   "title": "Programs, Airings and Caption Segments by Network and Phase",
+   "columns": [
+    "Network",
+    "Phase",
+    "Programs",
+    "Airings",
+    "Airings without captions",
+    "Segments",
+    "Relevant segments (V0 = yes)",
+    "Filter precision"
+   ],
+   "rows": "3 networks × 3 phases, plus totals",
+   "answers": []
+  },
+  {
+   "label": "T2",
+   "title": "Share of Belonging and Generic Partisan Conflict Frames by Network and Phase",
+   "columns": [
+    "Network",
+    "Phase",
+    "Belonging share [95% CI]",
+    "Generic partisan conflict share [95% CI]"
+   ],
+   "rows": "3 networks × 3 phases, plus pooled rows",
+   "answers": [
+    "RQ1"
+   ]
+  },
+  {
+   "label": "T3",
+   "title": "Excess Jensen–Shannon Divergence Between Networks by Phase",
+   "columns": [
+    "Pair or mean",
+    "Announcement [95% CI]",
+    "Build-up [95% CI]",
+    "Performance [95% CI]",
+    "Build-up − announcement [95% CI]",
+    "Performance − announcement [95% CI]"
+   ],
+   "rows": "Fox–CNN, Fox–MSNBC, CNN–MSNBC, mean",
+   "answers": [
+    "RQ2"
+   ]
+  },
+  {
+   "label": "T4",
+   "title": "Decomposition of the Divergence Between Networks by Category",
+   "columns": [
+    "Category",
+    "Announcement term",
+    "Build-up term",
+    "Performance term",
+    "Signed contribution to change [95% CI]",
+    "Share of change (if change excludes 0)"
+   ],
+   "rows": "belonging-include, belonging-exclude, generic partisan conflict, other, total; plus per-phase share of distance from generic partisan conflict",
+   "answers": [
+    "RQ3"
+   ]
+  },
+  {
+   "label": "T5",
+   "title": "Evaluation of the Spanish Language by Network and Phase",
+   "columns": [
+    "Network",
+    "Phase",
+    "Segments naming Spanish",
+    "Claim to belonging % [95% CI]",
+    "Breach % [95% CI]",
+    "Neither % [95% CI]",
+    "Excess divergence on evaluation [95% CI]"
+   ],
+   "rows": "3 networks × 3 phases",
+   "answers": [
+    "RQ4"
+   ]
+  },
+  {
+   "label": "T6",
+   "title": "Stability and Validity of the Language-Model Coder by Variable",
+   "columns": [
+    "Variable",
+    "Alpha (three fresh passes)",
+    "Alpha (four passes)",
+    "Checker–checker alpha",
+    "Model–checker alpha (checker 1, checker 2)",
+    "Floor met",
+    "Share of final codes decided by the reworded pass",
+    "Word-list agreement"
+   ],
+   "rows": "V0, V1, V2, V3",
+   "answers": []
+  }
+ ],
+ "figures": [
+  {
+   "label": "F1",
+   "title": "Network Divergence Across the Three Phases",
+   "shows": "pairwise and mean Jensen–Shannon divergence by phase with 95% intervals"
+  },
+  {
+   "label": "F2",
+   "title": "Topic Prevalence by Network and Phase",
+   "shows": "expected topic proportions from the structural topic model by network × phase"
+  }
+ ],
+ "deviations_policy": "Any departure is logged in deviations.json before the affected run and reported in Method and Limitations.",
+ "ethics": {
+  "human_subjects": false,
+  "personal_data": "pseudonymised public text",
+  "terms_of_use": "TV News Archive terms (A1 open); licensed-transcript terms (A2 open); aired names kept as aired, never joined or re-identified; the release holds identifiers and codes, never caption text (A4 open)"
+ },
+ "revision_note": "Revised within plan_revision 1 (not yet approved) after critic pass 1: one belonging construct, none excluded, non-overlapping decision rules, level decomposition for T3, default temperature, rule-based check, if_below. Round 3 (critic round 2): separate relevance step (V0), dictionary checks for V1/V2/V3, permutation baseline, T3 also favored by a generic-conflict widening (brief RQ3), STM fit rule, registry deposit. Round 5 (reviewer scorecard): relevance restricted to the show (separate first call); eight-category distribution (lines + five frames + no frame); one denominator (relevant segments); RQ1 difference measure and rule; per-category shuffled baselines; T1 tested in the broadcast window Feb 8-10 (A29); widening assigned by the larger contribution, rest-carried widening = none; sensitivity bands ±.025/±.10 and political controversy kept apart (A30); fallback corpus (A31); OSF registry and repository (A32); pre-registration hit counts to simulate interval widths (A34). Round 6: human spot check (A35) as a validity test, by the author's ruling.",
+ "missing_data": "Airings without captions are counted by network and phase and left out; no imputation. Segments not relevant (V0 = no) are counted and dropped before P1–P5; segments with no frame stay in every denominator and in V8.",
+ "multiple_comparisons": "Decisions rest on intervals for contrasts fixed a priori, not on significance tests; no correction for multiple tests is applied.",
+ "registration": "Registered on the Open Science Framework before any caption is retrieved (A32). Before registration, counts of keyword hits by network and phase (no text) are retrieved to simulate interval widths; if the simulated intervals are wider than the band in a phase, the registration says so (A34).",
+ "software": "Python and R (stm package); versions recorded in the released environment.",
+ "human_coding": {
+  "what": "spot check of the model's codes",
+  "who": "two of the authors",
+  "n": 180,
+  "design": "20 segments per network × phase, random with a fixed seed, blind to the model's codes",
+  "sheet": "data/coded/spot_check.csv (written at 6b)",
+  "basis": "author ruling 2026-10-15, overriding R-A25 for this project"
+ }
+}
